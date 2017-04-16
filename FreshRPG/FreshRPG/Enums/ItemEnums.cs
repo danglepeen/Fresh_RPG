@@ -1,13 +1,13 @@
 ﻿namespace Enums
 {
-	public enum ItemEffects
+	public enum ItemEffect
 	{
 		Healing,
 		Helpful,
 		Harmful,
 		Misc
 	}
-	public enum ItemAvailabilities
+	public enum ItemAvailability
 	{
 		Found,
 		Free,

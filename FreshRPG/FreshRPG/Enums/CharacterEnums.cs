@@ -1,12 +1,12 @@
 ﻿namespace Enums
 {
-	public enum Alignments
+	public enum Alignment
 	{
 		Good,
 		Nuetral,
 		Bad
 	}
-	public enum Difficulties
+	public enum Difficulty
 	{
 		None,
 		VeryEasy,
@@ -14,5 +14,12 @@
 		Medium,
 		Hard,
 		VeryHard
+	}
+	public enum Designation
+	{
+		CharacterOne,
+		CharacterTwo,
+		CharacterThree,
+		CharacterFour
 	}
 }

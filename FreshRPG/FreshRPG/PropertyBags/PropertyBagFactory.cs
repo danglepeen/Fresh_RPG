@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Enums;
 using Interfaces;
 
@@ -11,15 +7,15 @@ namespace PropertyBags
 	class PropertyBagFactory
 	{
 		// Constructor
-		public static IPropertyBag CreateBag(PropertyTypes PropertyType)
+		public static IPropertyBag CreateBag(BagType BagType)
 		{
-			switch(PropertyType)
+			switch(BagType)
 			{
-				case PropertyTypes.Character:
+				case BagType.Character:
 					return new CharacterPropertyBag();
-				case PropertyTypes.Item:
+				case BagType.Item:
 					return new ItemPropertyBag();
-				case PropertyTypes.Relic:
+				case BagType.Relic:
 					return new RelicPropertyBag();
 				default:
 					return new ProbabilityPropertyBag();
