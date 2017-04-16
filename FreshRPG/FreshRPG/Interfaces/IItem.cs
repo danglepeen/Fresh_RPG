@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Enums;
+﻿using Enums;
 
 namespace Interfaces
 {
@@ -11,7 +6,8 @@ namespace Interfaces
 	{
 		string Name { get; set; }
 		string Description { get; set; }
-		ItemAvailabilities ItemAavailability { get; set; }
-		ItemEffects ItemEffect { get; set; }
+		ItemAvailability ItemAvailability { get; set; }
+		ItemEffect ItemEffect { get; set; }
+		decimal ResaleValue { get; set; }
 	}
 }
