@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Enums;
+﻿using Enums;
 
 namespace Interfaces
 {
-
-		public interface ICharacter
-		{
-			string Name { get; set; }
-			int Health { get; set; }
-			int Level { get; set; }
-			Alignments Alignment { get; set; }
-		}
-	
+	public interface ICharacter
+	{
+		string Name { get; set; }
+		decimal Health { get; set; }
+		int Level { get; set; }
+		Alignment Alignment { get; set; }
+		decimal TotalXP { get; set; }
+	}
 }

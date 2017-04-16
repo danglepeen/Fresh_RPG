@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Enums;
 using Interfaces;
 using PropertyBags;
@@ -12,45 +8,57 @@ namespace Models
 	public class Character : ICharacter
 	{
 		public string Name { get; set; }
-		public int Health { get; set; }
+		public decimal Health { get; set; }
 		public int Level { get; set; }
-		public Alignments Alignment { get; set; }
+		public Alignment Alignment { get; set; }
+		public decimal TotalXP { get; set; }
+		public decimal XPToNextLevel { get; set; }
+		public bool EligibleForLevelUp { get; set; }
+		public Weapon Weapon { get; set; }
 
 		public Character()
 		{
 
 		}
 
-		// Playable Character
-		public Character(IPropertyBag propertyBag)
+		/// <summary>
+		/// Use this to create New Characters you can customize
+		/// </summary>
+		/// <param name="propertyBag"></param>
+		public Character(CharacterPropertyBag propertyBag)
 		{
 			this.Name = propertyBag.Name;
 			this.Health = propertyBag.Health;
 			this.Level = propertyBag.Level;
 			this.Alignment = propertyBag.Alignment;
+			this.TotalXP = 0;
 		}
 
-		// Non-Playable Character
-		public Character(Alignments align, Difficulties diff)
+		/// <summary>
+		/// Use this to create a random friend/enemy
+		/// </summary>
+		/// <param name="align">Good, Evil, or Nuetral</param>
+		/// <param name="diff">Very Easy, Easy, Medium, Hard, or Very Hard</param>
+		public Character(Alignment align, Difficulty diff)
 		{
 			switch(align)
 			{
-				case Alignments.Bad:
+				case Alignment.Bad:
 					switch(diff)
 					{
-						case Difficulties.VeryEasy:
+						case Difficulty.VeryEasy:
 							new Minion();
 							break;
-						case Difficulties.Easy:
+						case Difficulty.Easy:
 							new Minion(2);
 							break;
-						case Difficulties.Medium:
+						case Difficulty.Medium:
 							new Villian();
 							break;
-						case Difficulties.Hard:
+						case Difficulty.Hard:
 							new Boss();
 							break;
-						case Difficulties.VeryHard:
+						case Difficulty.VeryHard:
 							new Boss(2);
 							break;
 						default:
@@ -58,22 +66,22 @@ namespace Models
 							break;
 					}
 					break;
-				case Alignments.Good:
+				case Alignment.Good:
 					switch(diff)
 					{
-						case Difficulties.VeryEasy:
+						case Difficulty.VeryEasy:
 							new Minion();
 							break;
-						case Difficulties.Easy:
+						case Difficulty.Easy:
 							new Minion(2);
 							break;
-						case Difficulties.Medium:
+						case Difficulty.Medium:
 							new Villian();
 							break;
-						case Difficulties.Hard:
+						case Difficulty.Hard:
 							new Boss();
 							break;
-						case Difficulties.VeryHard:
+						case Difficulty.VeryHard:
 							new Boss(2);
 							break;
 						default:
@@ -84,6 +92,40 @@ namespace Models
 				default:
 					break;
 			}
+		}
+
+		/// <summary>
+		/// This method will return the amount XP points to character's next level.
+		/// </summary>
+		public decimal CalculateToNextLevel()
+		{
+			decimal result;
+			if(Level > 1)
+			{
+				var x = TotalXP - (Level * 100);
+				result = 100 - x;
+			}
+			else
+			{
+				result = 100 - TotalXP;
+			}
+
+			return result;
+		}
+
+		/// <summary>
+		/// This method will return a bool and level up a character if true
+		/// </summary>
+		public bool LevelUp()
+		{
+			var result = false;
+			var x = Math.Floor(TotalXP / 100);
+			if(Level < x)
+			{
+				Level++;
+				result = true;
+			}
+			return result;
 		}
 	}
 }

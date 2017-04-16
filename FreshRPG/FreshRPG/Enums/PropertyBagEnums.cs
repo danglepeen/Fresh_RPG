@@ -1,6 +1,6 @@
 ﻿namespace Enums
 {
-	public enum PropertyTypes
+	public enum BagType
 	{
 		Character,
 		Item,

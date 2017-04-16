@@ -1,0 +1,55 @@
+﻿@model ViewModels.BeginViewModel
+@{
+	ViewBag.Title = "About";
+	var player = Model.Player;
+	var weapon = Model.Player.Weapon;
+}
+
+<div class="container">
+	<div class="row">
+		<h1>Character</h1>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Name)
+			@Html.DisplayFor(model => player.Name)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Health)
+			@Html.DisplayFor(model => player.Health)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Level)
+			@Html.DisplayFor(model => player.Level)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.TotalXP)
+			@Html.DisplayFor(model => player.TotalXP)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.XPToNextLevel)
+			@Html.DisplayFor(model => player.XPToNextLevel)
+		</div>
+	</div>
+	<div class="row">
+		<h1>Weapon</h1>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Weapon.Name)
+			@Html.DisplayFor(model => player.Weapon.Name)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Weapon.Description)
+			@Html.DisplayFor(model => player.Weapon.Description)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Weapon.AttackStat)
+			@Html.DisplayFor(model => player.Weapon.AttackStat)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Weapon.DesignatedFor)
+			@Html.DisplayFor(model => player.Weapon.DesignatedFor)
+		</div>
+		<div class="col-sm-2">
+			@Html.LabelFor(model => player.Weapon.ItemEffect)
+			@Html.DisplayFor(model => player.Weapon.ItemEffect)
+		</div>
+	</div>
+</div>
