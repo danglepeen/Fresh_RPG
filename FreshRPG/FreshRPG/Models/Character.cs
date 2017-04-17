@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Enums;
 using Interfaces;
 using PropertyBags;
@@ -15,6 +16,8 @@ namespace Models
 		public decimal XPToNextLevel { get; set; }
 		public bool EligibleForLevelUp { get; set; }
 		public Weapon Weapon { get; set; }
+		public Armor Armor { get; set; }
+		public IEnumerable<IItem> Inventory { get; set; }
 
 		public Character()
 		{
@@ -37,14 +40,14 @@ namespace Models
 		/// <summary>
 		/// Use this to create a random friend/enemy
 		/// </summary>
-		/// <param name="align">Good, Evil, or Nuetral</param>
-		/// <param name="diff">Very Easy, Easy, Medium, Hard, or Very Hard</param>
-		public Character(Alignment align, Difficulty diff)
+		/// <param name="Alignment">Good, Evil, or Nuetral</param>
+		/// <param name="Difficulty">Very Easy, Easy, Medium, Hard, or Very Hard</param>
+		public Character(Alignment Alignment, Difficulty Difficulty)
 		{
-			switch(align)
+			switch(Alignment)
 			{
 				case Alignment.Bad:
-					switch(diff)
+					switch(Difficulty)
 					{
 						case Difficulty.VeryEasy:
 							new Minion();
@@ -67,7 +70,7 @@ namespace Models
 					}
 					break;
 				case Alignment.Good:
-					switch(diff)
+					switch(Difficulty)
 					{
 						case Difficulty.VeryEasy:
 							new Minion();
