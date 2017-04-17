@@ -7,5 +7,10 @@ namespace Models
 	{
 		public Designation DesignatedFor { get; set; }
 		public decimal DefenseStat { get; set; }
+
+		public Armor()
+		{
+			ItemEffect = ItemEffect.Helpful;
+		}
 	}
 }
