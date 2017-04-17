@@ -20,6 +20,7 @@
 		CharacterOne,
 		CharacterTwo,
 		CharacterThree,
-		CharacterFour
+		CharacterFour,
+		CharacrerFive
 	}
 }
