@@ -127,7 +127,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IEvent.cs" />
     <Compile Include="Models\Armor.cs" />
+    <Compile Include="Models\Battle.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="ViewModels\BeginViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

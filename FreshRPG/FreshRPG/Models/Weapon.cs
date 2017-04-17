@@ -7,5 +7,10 @@ namespace Models
 	{
 		public Designation DesignatedFor { get; set; }
 		public decimal AttackStat { get; set; }
+		
+		public Weapon() 
+		{
+			ItemEffect = ItemEffect.Harmful;
+		}
 	}
 }
