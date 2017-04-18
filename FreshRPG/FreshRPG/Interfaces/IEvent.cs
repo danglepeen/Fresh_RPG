@@ -9,6 +9,6 @@ namespace Interfaces
 	interface IEvent
 	{
 		IEnumerable<ICharacter> Characters { get; set; }
-		string Message { get; set; }
+		IEnumerable<string> Message { get; set; }
 	}
 }
